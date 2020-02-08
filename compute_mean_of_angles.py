@@ -31,6 +31,14 @@ def angles_to_cartesian(angles):
     return (xs, ys)    
 
 
+def cartesian_to_angular(x, y):
+    """
+    Converts a pair of cartesian x, y coordinates to a radius with angle
+    """    
+    angle = 180/math.pi * math.atan(y/x)
+    radius = math.sqrt(x*x + y*y)
+    return (radius, angle)    
+
 
 fig = plt.figure(figsize=(5, 5))
 ax = fig.add_subplot(111)
@@ -40,18 +48,17 @@ cx, cy = angles_to_cartesian(np.arange(0, 360, 0.1))
 ax.plot(cx, cy, "k-", label="circle 1")
 
 # draw angular samples
-angles = [210, 200, 155, 180, 290, 220]
+angles = [45, 315]
 xs, ys = angles_to_cartesian(angles)
 ax.plot(xs, ys, "bo", label="angles")
 
 # compute and plot mean
 mx = np.array(xs).mean()
 my = np.array(ys).mean()
-mAngle = 180/math.pi * math.atan(mx/my)
-mRadius = math.sqrt(mx*mx + my*my)
+
 ax.plot(mx, my, "rD", label="mean")
 ax.plot((0, mx), (0, my), "r-")
-print("mean angle = {:.1f}°, radius = {:.2f}".format(mAngle, mRadius))
+print("radius = {:.2f}, mean angle = {:.1f}°".format(*cartesian_to_angular(mx, my)))
 
 # beautify plot
 ax.grid(True)
