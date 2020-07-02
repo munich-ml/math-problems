@@ -1,7 +1,4 @@
-# math-problems
-collection of general math problems
-
-## compute the mean from a list of angles
+# compute the mean from a list of angles
 The problem:
 ```python
 np.array([0, 90]).mean()
