@@ -1,5 +1,5 @@
 # compute the mean from a list of angles
-The problem:
+## the problem
 ```python
 np.array([0, 90]).mean()
 ```
@@ -11,7 +11,7 @@ np.array([45, 315]).mean()
 ```
 returns 180, while you would expect 0° as the mean angle.
 
-The solution: 
+## the solution
 - convert to cartesian 
 - average x and y
 - convert back to angular
