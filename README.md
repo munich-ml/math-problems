@@ -15,5 +15,3 @@ returns 180, while you would expect 0° as the mean angle.
 - convert to cartesian 
 - average x and y
 - convert back to angular
-
-[link to an example implementation](compute_mean_of_angles.py)
